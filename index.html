@@ -2,54 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Search Box Assignment</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      width: 300px;
-      text-align: center;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      padding: 10px;
-      width: 100%;
-      background: #2ea043;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #22863a;
-    }
-  </style>
+  <title>Search & Add Form</title>
 </head>
 <body>
-  <div class="card">
-    <h2>Search Box</h2>
-    <form action="https://formspree.io/f/https://formspree.io/f/xeolvpew
- " method="POST">
-      <input type="text" name="search_query" placeholder="Type your search..." required>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+
+  <h2>Search and Submit Form</h2>
+
+  <form action="https://formspree.io/f/xeolvpew/yourFormID" method="POST">
+    <!-- Search Input -->
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search" required>
+
+    <!-- Add Button (Just adds another field dynamically) -->
+    <button type="button" onclick="addInput()">Add</button>
+
+    <div id="additional-fields"></div>
+
+    <!-- Submit Button -->
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function addInput() {
+      const container = document.getElementById('additional-fields');
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.name = 'extra[]';
+      input.placeholder = 'Additional info';
+      container.appendChild(document.createElement('br'));
+      container.appendChild(input);
+    }
+  </script>
+
 </body>
 </html>
+
+   
